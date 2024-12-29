@@ -19,9 +19,7 @@ import base64
 
 app = FastAPI()
 
-# 静态文件目录
-os.makedirs("static", exist_ok=True)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+
 cache = {}
 
 cache["email_v"] = "ranguoxing456@gmail.com"
@@ -288,9 +286,6 @@ def background_task(input_email):
                         impersonate="chrome124")
 
                 content = resp.content
-
-                with open(current_dir + "/static/image.jpg", "wb") as f:
-                    f.write(content)
 
                 base64_string = base64.b64encode(content).decode('utf-8')
 
