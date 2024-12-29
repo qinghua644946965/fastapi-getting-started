@@ -25,10 +25,6 @@ cache = {}
 cache["email_v"] = "ranguoxing456@gmail.com"
 cache["proxy_data"] = "none"
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-print(f"Current Directory: {current_dir}")
-
 
 @app.get("/", response_class=HTMLResponse)
 async def get_form():
@@ -360,8 +356,6 @@ def background_task(input_email):
                     outer_condition = False
                     inner_condition = False
                     break
-
-    os.remove("static/image.jpg")
 
 if __name__ == "__main__":
     uvicorn.run(app)
